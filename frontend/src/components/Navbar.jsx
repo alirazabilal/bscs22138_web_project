@@ -12,8 +12,12 @@ const Navbar = () => {
     <div>
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
         <div className="container-fluid">
-          <a className="navbar-brand" href="#">
-            airbnb
+          <a className="nav-red navbar-brand" href="#">
+            <img
+              className="image-logo"
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzq_r2hwsfNjAKNln-l_uSE_VM35iLTxjctQ&s"
+              alt="airbnb"
+            />
           </a>
           <button
             className="navbar-toggler"
@@ -93,7 +97,7 @@ const Navbar = () => {
             placeholder="check-out"
           />
           <input className="form-control me-2" type="text" placeholder="who" />
-          <button className="round-btn">
+          <button className="round-btn2">
             <i className="fa-solid fa-magnifying-glass"></i>
           </button>
         </div>
