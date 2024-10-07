@@ -3,14 +3,17 @@
   left: 26px;
   color: red;
 }
+
 .nav-li {
   display: inline;
   margin-right: 20px;
 }
+
 .nav-li.active a {
   text-decoration: underline;
   font-weight: bold;
 }
+
 .main-nav-div {
   background-color: white;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -54,6 +57,7 @@
 .navright-ul {
   list-style-type: none;
 }
+
 .navright-li a:hover {
   border-radius: 30px;
   background-color: brown;
@@ -73,12 +77,14 @@
 .globe {
   padding-left: 28px;
 }
+
 .contr {
   margin-left: 10rem;
   border-radius: 40px;
   padding: 8px;
   border: 1px solid rgb(92, 58, 58);
 }
+
 .bar {
   margin-right: 1rem;
 }
@@ -94,12 +100,14 @@
   flex-direction: column;
   gap: 10px;
 }
+
 .dropdown-item {
   text-decoration: none;
   color: #333;
   font-size: 14px;
   padding: 8px;
 }
+
 .dropdown-item:hover {
   background-color: #f1f1f1;
   border-radius: 4px;
@@ -118,12 +126,14 @@
   margin-top: 20px;
   padding: 10px;
 }
+
 .input-field {
   padding: 8px;
   border: 1px solid #ddd;
   border-radius: 5px;
   width: 150px;
 }
+
 .input-field:focus {
   outline: none;
   border-color: #ff385c;
@@ -137,15 +147,17 @@
   margin-top: 20px;
   overflow: hidden;
 }
+
 .scroll-bar {
   display: flex;
   overflow-x: auto;
   scroll-behavior: smooth;
-  width: calc(100% - 100px);
-  height: 70px;
+  width: calc(100% - 50px);
+  height: 120px;
   gap: 10px;
   padding: 10px;
 }
+
 .scroll-item {
   display: inline-block;
   padding: 8px 15px;
@@ -156,10 +168,12 @@
   cursor: pointer;
   white-space: nowrap;
 }
+
 .scroll-item:hover {
   background-color: #ff385c;
   color: white;
 }
+
 .scroll-btn {
   background-color: #ff385c;
   color: white;
@@ -174,17 +188,21 @@
   align-items: center;
   justify-content: center;
 }
+
 .scroll-btn:hover {
   background-color: #e63946;
 }
+
 .left-btn {
   position: absolute;
   left: 10px;
 }
+
 .right-btn {
   position: absolute;
   right: 10px;
 }
+
 @media (max-width: 768px) {
   .navbar-ul {
     display: none;
@@ -196,12 +214,15 @@
     background-color: white;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   }
+
   .navbar-ul.active {
     display: flex;
   }
+
   .contr {
     margin-left: auto;
   }
+
   .bar {
     cursor: pointer;
   }
