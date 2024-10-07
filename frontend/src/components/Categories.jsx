@@ -20,6 +20,13 @@ const Categories = ({ onCategorySelect }) => {
     "Downtown Apartment",
     "Spacious Loft",
     "Modern Studio",
+    "Charming Cottage",
+    "Luxury Villa",
+    "Quaint Farmhouse",
+    "Sleek City Condo",
+    "Rustic Log Cabin",
+    "Elegant Penthouse",
+    "Chic Studio Apartment",
   ];
 
   return (
