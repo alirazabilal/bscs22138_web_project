@@ -1,0 +1,113 @@
+.navbar-nav {
+  flex-grow: 1;
+  justify-content: center;
+}
+* {
+  color: black;
+}
+.nav-red {
+  color: red;
+}
+.image-logo {
+  width: 40%;
+  height: 100px;
+}
+.profile {
+  margin-left: 10px;
+}
+.round {
+  padding: 10px;
+  border-radius: 40px;
+}
+.textabout {
+  text-decoration: none;
+}
+.textabout a {
+  columns: black;
+}
+.center-input {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  background-color: rgb(233, 233, 220);
+  border-radius: 30px;
+  border: 1px solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  left: 10px;
+}
+.inputfield {
+  border: 1ps solid transparent;
+
+  border-radius: 15px;
+}
+.round-btn2 {
+  border-radius: 20px;
+  padding: 10px;
+  background-color: rgb(209, 32, 32);
+  margin-left: 2px;
+  margin-right: 10px;
+}
+.nav-link {
+  text-decoration: none;
+  color: black;
+}
+
+.nav-link.active {
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+.nav-link:hover {
+  color: #007bff;
+}
+
+.navbar {
+  display: flex;
+  flex-direction: column;
+}
+
+.center-input {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 10px 0;
+  gap: 10px;
+}
+
+.center-input input {
+  flex: 1;
+  min-width: 150px;
+  max-width: 200px;
+  padding: 8px;
+}
+
+.round-btn {
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+  }
+
+  .center-input {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .center-input input {
+    width: 100%;
+    max-width: none;
+  }
+
+  .round-btn {
+    width: 100%;
+  }
+}
