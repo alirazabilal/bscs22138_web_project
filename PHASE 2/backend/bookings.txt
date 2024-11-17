@@ -1,0 +1,61 @@
+
+    Property ID: 3
+    Property Title: Downtown Apartment
+    Check-in Date: 2024-11-15
+    Check-out Date: 2024-11-18
+    Number of Guests: 5
+    Phone Number: 3227507978
+    Country Code: +92
+    Total Price: 1800
+    ---------------------------------------------------
+  
+    Property ID: 6
+    Property Title: Charming Cottage
+    Check-in Date: 2024-11-15
+    Check-out Date: 2024-11-20
+    Number of Guests: 10
+    Phone Number: 82478
+    Country Code: +92
+    Total Price: 5500
+    ---------------------------------------------------
+  
+    Property ID: 8
+    Property Title: Quaint Farmhouse
+    Check-in Date: 2024-11-16
+    Check-out Date: 2024-11-18
+    Number of Guests: 1
+    Phone Number: 3432084782
+    Country Code: +92
+    Total Price: 300
+    ---------------------------------------------------
+  
+    Property ID: 4
+    Property Title: Spacious Loft
+    Check-in Date: 2024-11-08
+    Check-out Date: 2024-11-19
+    Number of Guests: 3
+    Phone Number: 342523
+    Country Code: +92
+    Total Price: 2970
+    ---------------------------------------------------
+  
+    Property ID: 1
+    Property Title: Beautiful Beach House
+    Check-in Date: 2024-12-05
+    Check-out Date: 2024-12-07
+    Number of Guests: 13
+    Phone Number: 434242
+    Country Code: +92
+    Total Price: 3900
+    ---------------------------------------------------
+  
+    Property ID: 8
+    Property Title: Quaint Farmhouse
+    Check-in Date: 2024-11-21
+    Check-out Date: 2024-11-22
+    Number of Guests: 14
+    Phone Number: 434242
+    Country Code: +92
+    Total Price: 2100
+    ---------------------------------------------------
+  
