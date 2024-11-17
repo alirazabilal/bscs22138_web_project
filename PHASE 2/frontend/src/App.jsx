@@ -20,12 +20,28 @@ function App() {
     setSearchTerm(term);
   };
 
+  useEffect(() => {
+    const fetchListings = async () => {
+      try {
+        const response = await fetch(
+          `http://localhost:4000/listings/search?query=${searchTerm}`
+        );
+        const data = await response.json();
+        setListings(data);
+        console.log(data);
+      } catch (error) {
+        console.error("Error fetching listings:", error);
+      }
+    };
+    fetchListings();
+  }, [searchTerm]);
+
   const router = createBrowserRouter([
     {
       path: "/",
       element: (
         <>
-          <Navbar />
+          <Navbar onSearch={handleSearch} />
           <div>
             <Categories onCategorySelect={handleCategorySelect} />
             <Listings
@@ -42,7 +58,7 @@ function App() {
       path: "/details/:id",
       element: (
         <>
-          <Navbar />
+          <Navbar onSearch={handleSearch} />
           <div>
             <ListingDetails />
           </div>
@@ -54,7 +70,7 @@ function App() {
       path: "/book/:id",
       element: (
         <>
-          <Navbar />
+          <Navbar onSearch={handleSearch} />
           <div>
             <Book />
           </div>
