@@ -1,0 +1,83 @@
+.book-container {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+}
+
+.heading {
+  font-size: 24px;
+  text-align: center;
+  padding: 3px;
+}
+
+.booking-form {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 16px;
+  box-shadow: 3 2px 10px rgba(150, 45, 45, 0.1);
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-label {
+  display: block;
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.form-input {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.error-message {
+  color: red;
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+.submit-button {
+  width: 100%;
+  padding: 20px;
+  background-color: #a02424;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.submit-button:hover {
+  background-color: #a32544;
+}
+
+.property-summary {
+  margin-top: 30px;
+  background-color: #f0f0f0;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.property-summary h3 {
+  font-size: 30px;
+}
+
+.property-summary p {
+  font-size: 16px;
+}
+
+@media (max-width: 768px) {
+  .booking-form {
+    width: 90%;
+  }
+
+  .property-summary {
+    width: 90%;
+  }
+}
