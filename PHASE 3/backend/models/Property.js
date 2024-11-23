@@ -8,9 +8,9 @@ const propertySchema = new mongoose.Schema({
   bathrooms: { type: Number, required: true },
   price: { type: Number, required: true },
   rating: { type: Number, default: 0 },
-  images: { type: [String], required: true }, // Array for all image URLs
-  details: { type: [String] }, // Array for detail descriptions
-  amenities: { type: [String] }, // List of amenities
+  images: { type: [String], required: true },
+  details: { type: [String] },
+  amenities: { type: [String] },
 });
 
 const Property = mongoose.model("Property", propertySchema);
