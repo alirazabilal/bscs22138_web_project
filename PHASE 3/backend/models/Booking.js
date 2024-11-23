@@ -2,15 +2,15 @@ const mongoose = require("mongoose");
 
 const bookingSchema = new mongoose.Schema({
   property: {
-    type: String, // Store propertyId as a string
+    type: String,
     required: true,
   },
   propertyName: {
-    type: String, // Store the property name
+    type: String,
     required: true,
   },
   user: {
-    type: String, // Store userId as a string (optional)
+    type: String,
     required: false,
   },
   checkIn: {
