@@ -6,8 +6,8 @@ const userSchema = new mongoose.Schema({
   password: { type: String, required: true },
   phone: { type: String },
   isHost: { type: Boolean, default: false },
-  bookings: [{ type: mongoose.Schema.Types.ObjectId, ref: "Booking" }], // User's bookings
-  listings: [{ type: mongoose.Schema.Types.ObjectId, ref: "Listing" }], // For hosts (now referring to Listing)
+  bookings: [{ type: mongoose.Schema.Types.ObjectId, ref: "Booking" }],
+  listings: [{ type: mongoose.Schema.Types.ObjectId, ref: "Listing" }],
 });
 
 const User = mongoose.model("User", userSchema);
