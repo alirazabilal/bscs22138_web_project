@@ -1,9 +1,18 @@
 const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
-const mockData = require("./mockData");
+const mockData = require("./mockData.js");
 const fs = require("fs");
 const path = require("path");
+
+const bookingRoute = require("./routes/bookingRoute.js");
+const listingRoute = require("./routes/listingRoute.js");
+const authRoute = require("./routes/authRoute.js");
+const adminRoute = require("./routes/adminRoute.js");
+
+const mongoose = require("mongoose");
+const dotenv = require("dotenv");
+dotenv.config();
 
 const app = express();
 
@@ -13,67 +22,26 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 const PORT = 4000;
 
+mongoose
+  .connect(process.env.MONGODB_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => console.log("Connected to MongoDB"))
+  .catch((error) => console.error("MongoDB connection error:", error));
+
 const bookings = [];
 
 const bookingsFilePath = path.join(__dirname, "bookings.txt");
 
-app.post("/api/bookings", (req, res) => {
-  const newBooking = req.body;
+app.use("/api", bookingRoute);
 
-  const bookingText = `
-    Property ID: ${newBooking.propertyId}
-    Property Title: ${newBooking.propertyName}
-    Check-in Date: ${newBooking.checkInDate}
-    Check-out Date: ${newBooking.checkOutDate}
-    Number of Guests: ${newBooking.numGuests}
-    Phone Number: ${newBooking.phoneNumber}
-    Country Code: ${newBooking.countryCode}
-    Total Price: ${newBooking.totalPrice}
-    ---------------------------------------------------
-  `;
+app.use("/listings", listingRoute);
 
-  fs.appendFile(bookingsFilePath, bookingText, (err) => {
-    if (err) {
-      console.error("Error saving booking data to file:", err);
-      return res.status(500).json({ error: "Failed to save booking." });
-    }
+app.use("/auth", authRoute);
 
-    res.status(201).json(newBooking);
-  });
-});
+app.use("/admin", adminRoute);
 
-// app.post("/api/bookings", (req, res) => {
-//   const newBooking = req.body;
-//   newBooking.id = bookings.length + 1;
-//   bookings.push(newBooking);
-
-//   res.status(201).json(newBooking);
-// });
-
-app.get("/listings", (req, res) => {
-  res.json(mockData);
-});
-
-app.get("/listings/search", (req, res) => {
-  const query = req.query.query ? req.query.query.toLowerCase() : "";
-
-  const filteredListings = mockData.filter((listing) =>
-    listing.title.toLowerCase().includes(query)
-  );
-
-  res.json(filteredListings);
-});
-app.get("/listings/:id", (req, res) => {
-  const lId = req.params.id;
-  const parsedLId = parseInt(lId, 10);
-  const listing = mockData.find((item) => item.id === parsedLId);
-
-  if (listing) {
-    res.json(listing);
-  } else {
-    res.status(404).json({ error: "NOT FOUND ITEM" });
-  }
-});
 app.get("/", (req, res) => {
   res.send("heyyy");
 });
