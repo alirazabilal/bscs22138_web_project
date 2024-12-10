@@ -1,0 +1,158 @@
+/* General container styling */
+.user-details-container {
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #f4f4f9;
+  padding: 20px;
+}
+
+/* Card layout for user details */
+.user-details-card {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 80%;
+  overflow: hidden;
+}
+
+/* Left Section */
+.user-left-section {
+  background: #007bff;
+  color: white;
+  text-align: center;
+  padding: 30px 20px;
+}
+
+.user-avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+  border: 3px solid white;
+}
+
+.user-left-section h2 {
+  font-size: 20px;
+  margin: 10px 0;
+}
+
+.user-role {
+  font-size: 16px;
+  font-style: italic;
+  color: #d9ecff;
+}
+
+/* Center Section */
+.user-center-section {
+  padding: 30px 20px;
+}
+
+.user-center-section h1 {
+  font-size: 24px;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.user-center-section p {
+  color: #555;
+  font-size: 16px;
+}
+
+.user-info p {
+  margin: 10px 0;
+  font-size: 16px;
+  color: #444;
+}
+
+/* Right Section */
+.user-right-section {
+  background: #f9f9f9;
+  padding: 30px 20px;
+  border-left: 1px solid #e0e0e0;
+}
+
+.user-right-section h3 {
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+.quick-links {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 20px;
+}
+
+.quick-links li {
+  margin: 10px 0;
+}
+
+.quick-links li a {
+  color: #007bff;
+  text-decoration: none;
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
+
+.quick-links li a:hover {
+  color: #0056b3;
+}
+
+/* Loader styling */
+.loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f9f9f9;
+}
+
+.loader {
+  border: 4px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 4px solid #007bff;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Error styling */
+.error-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  text-align: center;
+  background: #fff3f3;
+  color: #d9534f;
+}
+
+.error-message {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.error-container button {
+  background: #d9534f;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.error-container button:hover {
+  background: #c9302c;
+}
