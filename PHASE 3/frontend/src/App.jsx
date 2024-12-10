@@ -6,6 +6,14 @@ import Footer from "./components/Footer";
 import Categories from "./components/Categories";
 import ListingDetails from "./components/ListingDetails";
 import Book from "./components/Book";
+import Signup from "./components/Signup";
+import Login from "./components/Login";
+import AdminLogin from "./components/AdminLogin";
+import AdminHome from "./components/AdminHome";
+import AddListing from "./components/AddListing";
+import AdminBooking from "./components/AdminBooking";
+import UserDetails from "./components/UserDetails";
+import MyBookings from "./components/MyBookings";
 
 function App() {
   const [selectedCategory, setSelectedCategory] = useState("");
@@ -73,6 +81,102 @@ function App() {
           <Navbar onSearch={handleSearch} />
           <div>
             <Book />
+          </div>
+          <Footer />
+        </>
+      ),
+    },
+    {
+      path: "/userdetails",
+      element: (
+        <>
+          <Navbar onSearch={handleSearch} />
+          <div>
+            <UserDetails />
+          </div>
+          <Footer />
+        </>
+      ),
+    },
+    {
+      path: "/mybookings",
+      element: (
+        <>
+          <Navbar onSearch={handleSearch} />
+          <div>
+            <MyBookings />
+          </div>
+          <Footer />
+        </>
+      ),
+    },
+    {
+      path: "/signup",
+      element: (
+        <>
+          <Navbar onSearch={handleSearch} />
+          <div>
+            <Signup />
+          </div>
+          <Footer />
+        </>
+      ),
+    },
+    {
+      path: "/login",
+      element: (
+        <>
+          <Navbar onSearch={handleSearch} />
+          <div>
+            <Login />
+          </div>
+          <Footer />
+        </>
+      ),
+    },
+    {
+      path: "/adminlogin",
+      element: (
+        <>
+          <Navbar onSearch={handleSearch} />
+          <div>
+            <AdminLogin />
+          </div>
+          <Footer />
+        </>
+      ),
+    },
+    {
+      path: "/adminhome",
+      element: (
+        <>
+          <Navbar onSearch={handleSearch} />
+          <div>
+            <AdminHome />
+          </div>
+          <Footer />
+        </>
+      ),
+    },
+    {
+      path: "/adminaddlisting",
+      element: (
+        <>
+          <Navbar onSearch={handleSearch} />
+          <div>
+            <AddListing />
+          </div>
+          <Footer />
+        </>
+      ),
+    },
+    {
+      path: "/adminbookings",
+      element: (
+        <>
+          <Navbar onSearch={handleSearch} />
+          <div>
+            <AdminBooking />
           </div>
           <Footer />
         </>
