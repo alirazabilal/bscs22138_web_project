@@ -3,8 +3,8 @@ const router = express.Router();
 const Booking = require("../models/Booking");
 const Listing = require("../models/Listing");
 const User = require("../models/User");
-const authenticate = require("../middleware/authMiddleware.js"); //(empty) I WILL WRITE THESE LATER
-const authenticateAdmin = require("../middleware/authMiddlewareAdmin.js"); //(empty) I WILL WRITE THESE LATER
+const authenticate = require("../middleware/authMiddleware.js");
+const authenticateAdmin = require("../middleware/authMiddlewareAdmin.js");
 
 router.post("/bookings", authenticate, async (req, res) => {
   const {
@@ -48,7 +48,6 @@ router.post("/bookings", authenticate, async (req, res) => {
 
     user.bookings.push(newBooking._id);
     await user.save();
-
     res.status(201).json(newBooking);
   } catch (error) {
     console.error("Error saving booking:", error);
@@ -67,6 +66,48 @@ router.get("/bookings", authenticateAdmin, async (req, res) => {
   } catch (error) {
     console.error("Error retrieving bookings:", error);
     res.status(500).json({ error: "Failed to retrieve bookings." });
+  }
+});
+router.get("/bookings/user", authenticate, async (req, res) => {
+  try {
+    const userBookings = await Booking.find({ user: req.user.id });
+
+    if (!userBookings || userBookings.length === 0) {
+      return res
+        .status(404)
+        .json({ message: "No bookings found for this user" });
+    }
+
+    res.status(200).json(userBookings);
+  } catch (error) {
+    console.error("Error retrieving user bookings:", error);
+    res.status(500).json({ error: "Failed to retrieve bookings for user." });
+  }
+});
+router.delete("/bookings/:id", authenticate, async (req, res) => {
+  const bookingId = req.params.id;
+
+  try {
+    const booking = await Booking.findByIdAndDelete(bookingId);
+
+    if (!booking) {
+      return res.status(404).json({ message: "Booking not found" });
+    }
+
+    if (booking.user.toString() !== req.user.id) {
+      return res
+        .status(403)
+        .json({ message: "Unauthorized to delete this booking" });
+    }
+
+    const user = await User.findById(req.user.id);
+    user.bookings.pull(bookingId);
+    await user.save();
+
+    res.status(200).json({ message: "Booking deleted successfully" });
+  } catch (error) {
+    console.error("Error deleting booking:", error);
+    res.status(500).json({ error: "Failed to delete booking" });
   }
 });
 
