@@ -17,6 +17,7 @@ const isAdmin = (req, res, next) => {
   }
 };
 
+// 1. GET /admin/admin/listings - Fetch all listings (admin view)
 router.get("/listings", async (req, res) => {
   try {
     const listings = await Listing.find();
@@ -226,7 +227,6 @@ router.get("/host/bookings", authMiddlewareHost, async (req, res) => {
     const hostId = req.user.id;
     console.log("Host ID:", hostId);
 
-    // Validate that the user is a host
     const host = await User.findById(hostId);
     if (!host || host.role !== "host") {
       return res
