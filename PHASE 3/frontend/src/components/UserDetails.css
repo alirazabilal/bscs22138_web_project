@@ -1,4 +1,3 @@
-/* General container styling */
 .user-details-container {
   display: flex;
   justify-content: center;
@@ -7,7 +6,6 @@
   padding: 20px;
 }
 
-/* Card layout for user details */
 .user-details-card {
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
@@ -16,9 +14,9 @@
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   width: 80%;
   overflow: hidden;
+  gap: 20px;
 }
 
-/* Left Section */
 .user-left-section {
   background: #007bff;
   color: white;
@@ -45,7 +43,6 @@
   color: #d9ecff;
 }
 
-/* Center Section */
 .user-center-section {
   padding: 30px 20px;
 }
@@ -67,7 +64,6 @@
   color: #444;
 }
 
-/* Right Section */
 .user-right-section {
   background: #f9f9f9;
   padding: 30px 20px;
@@ -100,7 +96,6 @@
   color: #0056b3;
 }
 
-/* Loader styling */
 .loader-container {
   display: flex;
   justify-content: center;
@@ -127,7 +122,6 @@
   }
 }
 
-/* Error styling */
 .error-container {
   display: flex;
   flex-direction: column;
@@ -155,4 +149,54 @@
 
 .error-container button:hover {
   background: #c9302c;
+}
+
+@media (max-width: 768px) {
+  .user-details-card {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .user-left-section {
+    padding: 20px;
+  }
+
+  .user-avatar {
+    width: 80px;
+    height: 80px;
+  }
+
+  .user-center-section {
+    padding: 20px;
+  }
+
+  .user-right-section {
+    padding: 20px;
+    border-left: none;
+    border-top: 1px solid #e0e0e0;
+  }
+
+  .user-center-section h1 {
+    font-size: 20px;
+  }
+
+  .user-center-section p,
+  .user-info p,
+  .quick-links li a {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .user-details-card {
+    width: 100%;
+  }
+
+  .user-left-section h2 {
+    font-size: 18px;
+  }
+
+  .user-center-section h1 {
+    font-size: 18px;
+  }
 }
