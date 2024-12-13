@@ -3,9 +3,9 @@ import { useLocation, useNavigate } from "react-router-dom";
 import "./UserDetails.css";
 
 const UserDetails = () => {
-  const navigate = useNavigate(); // for redirect after signup
+  const navigate = useNavigate();
   const location = useLocation();
-  const { userId } = location.state || {}; // Retrieve userId from state
+  const { userId } = location.state || {};
   const [userDetails, setUserDetails] = useState(null);
   const [error, setError] = useState(null);
 
@@ -14,7 +14,7 @@ const UserDetails = () => {
       setError("User ID is missing");
       return;
     }
-
+    console.log(userId);
     const fetchUserDetails = async () => {
       try {
         const response = await fetch(
@@ -43,7 +43,6 @@ const UserDetails = () => {
   return (
     <div className="user-details-container">
       <div className="user-details-card">
-        {/* Left Section */}
         <div className="user-left-section">
           <img
             src="https://via.placeholder.com/150"
@@ -51,10 +50,9 @@ const UserDetails = () => {
             className="user-avatar"
           />
           <h2>{userDetails.name}</h2>
-          <p className="user-role">{userDetails.isHost ? "Host" : "Guest"}</p>
+          <p className="user-role">{userDetails.role ? "Host" : "Guest"}</p>
         </div>
 
-        {/* Center Section */}
         <div className="user-center-section">
           <h1>Welcome, "{userDetails.name}"</h1>
           <div className="user-info">
@@ -70,7 +68,6 @@ const UserDetails = () => {
           </div>
         </div>
 
-        {/* Right Section */}
         <div className="user-right-section">
           <h3>Quick Links</h3>
           <ul className="quick-links">
