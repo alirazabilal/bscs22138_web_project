@@ -48,6 +48,7 @@ router.post("/bookings", authenticate, async (req, res) => {
 
     user.bookings.push(newBooking._id);
     await user.save();
+
     res.status(201).json(newBooking);
   } catch (error) {
     console.error("Error saving booking:", error);
