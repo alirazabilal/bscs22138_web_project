@@ -33,15 +33,22 @@ const Book = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+  
     if (!checkInDate || !checkOutDate || !phoneNumber) {
       setError("All fields are required.");
       return;
     }
     setError("");
-
+  
+    const token = localStorage.getItem("token");
+    console.log(token);
+    if (!token) {
+      navigate("/login");
+      return;
+    }
+  
     const bookingData = {
-      propertyId: property.id,
+      propertyId: property._id,
       propertyName: property.title,
       checkInDate,
       checkOutDate,
@@ -50,20 +57,26 @@ const Book = () => {
       countryCode,
       totalPrice: calc_total_price(),
     };
-
+  
     try {
       const response = await axios.post(
         "http://localhost:4000/api/bookings",
-        bookingData
+        bookingData,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
       );
       console.log("Booking response:", response.data);
-
+  
       navigate("/");
     } catch (error) {
-      console.error("Error submitting booking:", error);
+      console.log("Error submitting booking:", error);
       setError("There was an issue with the booking. Please try again.");
     }
   };
+  
 
   return (
     <div className="book-container">
