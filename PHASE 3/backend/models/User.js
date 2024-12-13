@@ -5,7 +5,8 @@ const userSchema = new mongoose.Schema({
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
   phone: { type: String },
-  isHost: { type: Boolean, default: false },
+  // isHost: { type: Boolean, default: false },
+  role: { type: String, enum: ["host", "guest"], default: "guest" },
   bookings: [{ type: mongoose.Schema.Types.ObjectId, ref: "Booking" }],
   listings: [{ type: mongoose.Schema.Types.ObjectId, ref: "Listing" }],
 });
