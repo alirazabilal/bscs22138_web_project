@@ -8,11 +8,11 @@ const authMiddleware = (req, res, next) => {
     return res.status(401).json({ error: "Access denied. No token provided." });
   }
 
-  const token = authHeader.split(" ")[1]; // Extract the token
+  const token = authHeader.split(" ")[1];
 
   try {
-    const decoded = jwt.verify(token, JWT_SECRET_HOST); // Verify the token
-    req.user = decoded; // Attach the decoded token (which contains `id`) to req.user
+    const decoded = jwt.verify(token, JWT_SECRET_HOST);
+    req.user = decoded;
     next();
   } catch (err) {
     console.log("wrong");
