@@ -1,0 +1,100 @@
+.my-bookings-container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #333;
+  font-family: "Arial", sans-serif;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.booking-card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 350px;
+  padding: 20px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.booking-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.booking-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover;
+  margin-bottom: 15px;
+}
+
+.booking-info {
+  font-family: "Arial", sans-serif;
+  color: #555;
+}
+
+.booking-info h3 {
+  margin-bottom: 10px;
+  color: #007bff;
+}
+
+.booking-info p {
+  margin: 5px 0;
+}
+
+.booking-info p strong {
+  color: #333;
+}
+
+.booking-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.booking-card-footer .status {
+  font-weight: bold;
+  color: #28a745;
+}
+
+.booking-card-footer .status.pending {
+  color: #ffc107;
+}
+
+.booking-card-footer .status.cancelled {
+  color: #dc3545;
+}
+
+.booking-card-footer button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.booking-card-footer button:hover {
+  background-color: #0056b3;
+}
