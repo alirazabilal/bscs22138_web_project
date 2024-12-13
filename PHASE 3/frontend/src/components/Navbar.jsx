@@ -8,27 +8,30 @@ const Navbar = ({ onSearch }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isAdminLoggedIn, setIsAdminLoggedIn] = useState(false);
   const [userId, setUserId] = useState(null);
+  const [isHost, setIsHost] = useState(null);
   const navigate = useNavigate();
 
-  // Check if the user is logged in (based on the token in localStorage)
   useEffect(() => {
     const token = localStorage.getItem("token");
-    setIsLoggedIn(!!token); // Update state based on the presence of the token
-  }, []); // This effect only runs on mount (when the component is first loaded)
+    setIsLoggedIn(!!token);
+  }, []);
 
-  // Check if the user is logged in (based on the token in localStorage)
   useEffect(() => {
     const tokenadmin = localStorage.getItem("tokenadmin");
-    setIsAdminLoggedIn(!!tokenadmin); // Update state based on the presence of the token
-  }, []); // This effect only runs on mount (when the component is first loaded)
+    setIsAdminLoggedIn(!!tokenadmin);
+  }, []);
+
+  useEffect(() => {
+    const userRole = localStorage.getItem("userRole");
+    setIsHost(!!userRole);
+  }, []);
 
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (token) {
       try {
-        // Manually extract user ID from the JWT payload
-        const payload = JSON.parse(atob(token.split(".")[1])); // Decode Base64 payload
-        setUserId(payload.id); // Store user ID
+        const payload = JSON.parse(atob(token.split(".")[1]));
+        setUserId(payload.id);
         setIsLoggedIn(true);
       } catch (err) {
         console.error("Error decoding token:", err);
@@ -46,15 +49,17 @@ const Navbar = ({ onSearch }) => {
   };
 
   const handleLogout = () => {
-    localStorage.removeItem("token"); // Remove token from localStorage
-    setIsLoggedIn(false); // Update state to reflect user is logged out
-    navigate("/"); // Optionally navigate to home page after logout
+    localStorage.removeItem("token");
+    localStorage.removeItem("userRole");
+    setIsHost(false);
+    setIsLoggedIn(false);
+    navigate("/");
   };
 
   const handleLogoutAdmin = () => {
-    localStorage.removeItem("tokenadmin"); // Remove token from localStorage
-    setIsAdminLoggedIn(false); // Update state to reflect user is logged out
-    navigate("/"); // Optionally navigate to home page after logout
+    localStorage.removeItem("tokenadmin");
+    setIsAdminLoggedIn(false);
+    navigate("/");
   };
 
   return (
@@ -169,7 +174,7 @@ const Navbar = ({ onSearch }) => {
                         activeLink === "about" ? "active" : ""
                       }`}
                       onClick={() => handleLinkClick("about")}
-                      to="/adminhome"
+                      to="/about"
                     >
                       About
                     </NavLink>
@@ -181,11 +186,21 @@ const Navbar = ({ onSearch }) => {
                         activeLink === "about" ? "active" : ""
                       }`}
                       onClick={() => handleLinkClick("about")}
-                      to="/"
+                      to="/about"
                     >
                       About
                     </NavLink>
                   </>
+                )}
+                {isAdminLoggedIn && (
+                  <NavLink
+                    className={`nav-link ${
+                      activeLink === "about" ? "active" : ""
+                    }`}
+                    to="/adminbookings"
+                  >
+                    Check bookings
+                  </NavLink>
                 )}
               </li>
             </ul>
@@ -203,22 +218,39 @@ const Navbar = ({ onSearch }) => {
               </>
             )}
 
+            {isHost ? (
+              <>
+                <div className="p-2">
+                  <NavLink className="textabout" to="/hostaddhome">
+                    Add a listing-HOST
+                  </NavLink>
+                </div>
+              </>
+            ) : (
+              <></>
+            )}
+
             <form className="round d-flex" role="search">
               <i className="fa-solid fa-bars"></i>
               <i className="profile fa-solid fa-user"></i>
             </form>
 
-            {/* Conditionally render login/signup or profile/logout buttons */}
             {!isLoggedIn && !isAdminLoggedIn ? (
               <>
                 <NavLink to="/login">
-                  <button className="btn btn-primary">LogIn</button>
+                  <button className="btn btn-primary">
+                    <i className="fa-solid fa-user">Login</i>
+                  </button>
                 </NavLink>
                 <NavLink to="/signup">
-                  <button className="btn btn-primary">SignUp</button>
+                  <button className="btn btn-primary">
+                    <i className="fa-solid fa-users">Signup</i>
+                  </button>
                 </NavLink>
                 <NavLink to="/adminlogin">
-                  <button className="btn btn-primary">Admin Login</button>
+                  <button className="btn btn-primary">
+                    <i className="fa-solid fa-user-secret">Admin Login</i>
+                  </button>
                 </NavLink>
               </>
             ) : (
