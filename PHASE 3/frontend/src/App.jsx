@@ -14,6 +14,9 @@ import AddListing from "./components/AddListing";
 import AdminBooking from "./components/AdminBooking";
 import UserDetails from "./components/UserDetails";
 import MyBookings from "./components/MyBookings";
+import HostAddHome from "./components/HostAddHome";
+import HostAddNew from "./components/HostAddNew";
+import About from "./components/About";
 
 function App() {
   const [selectedCategory, setSelectedCategory] = useState("");
@@ -69,6 +72,18 @@ function App() {
           <Navbar onSearch={handleSearch} />
           <div>
             <ListingDetails />
+          </div>
+          <Footer />
+        </>
+      ),
+    },
+    {
+      path: "/about",
+      element: (
+        <>
+          <Navbar onSearch={handleSearch} />
+          <div>
+            <About />
           </div>
           <Footer />
         </>
@@ -153,6 +168,30 @@ function App() {
           <Navbar onSearch={handleSearch} />
           <div>
             <AdminHome />
+          </div>
+          <Footer />
+        </>
+      ),
+    },
+    {
+      path: "/hostaddhome",
+      element: (
+        <>
+          <Navbar onSearch={handleSearch} />
+          <div>
+            <HostAddHome />
+          </div>
+          <Footer />
+        </>
+      ),
+    },
+    {
+      path: "/hostaddnew",
+      element: (
+        <>
+          <Navbar onSearch={handleSearch} />
+          <div>
+            <HostAddNew />
           </div>
           <Footer />
         </>
